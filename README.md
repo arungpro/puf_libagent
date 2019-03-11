@@ -22,13 +22,14 @@ Account_Name: 'customer1'
 Account_ACC_KEY: '1afacb63-b7b2-4d04-be54-bf173dde4c0e'
 ```
 
-## Open 
+## Open to keep an eye on
 ```docker stats```
 
 ## Drive continuous load using tool like siege on seperate windows parallelly
+```
 siege -c 50 -t 15M http://localhost:3000/
 siege -c 50 -t 15M http://localhost:3000/http
 siege -c 50 -t 15M http://localhost:3000/redis
 siege -c 50 -t 15M http://localhost:3000/mysql
 siege -c 50 -t 15M http://localhost:3000/all
-
+```
