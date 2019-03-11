@@ -1,0 +1,41 @@
+version: '2.2'
+services:
+    my_db:
+        image: mysql
+        command: --default-authentication-plugin=mysql_native_password
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: 'admin'
+            MYSQL_DATABASE: performance_tool_nodejs
+            MYSQL_USER: 'arung'
+            MYSQL_PASSWORD: 'admin'
+        healthcheck:
+            test: "exit 0"
+        ports:
+            - "3306:3306"  
+
+    aux_app:
+        build: ./aux_app
+        environment:
+            CONTROLLER_HOST_NAME: '192.168.43.229'
+            CONTROLLER_HOST_PORT: '8090'
+            Account_Name: 'customer1'
+            Account_ACC_KEY: '1afacb63-b7b2-4d04-be54-bf173dde4c0e'
+        ports:
+            - "3002:3002"
+    my_redis:
+        image: redis:latest
+    
+    main_app:
+        build: ./main_app
+        depends_on:
+            - my_db
+            - aux_app
+            - my_redis
+        ports:
+            - "3000:3000"
+        environment:
+            CONTROLLER_HOST_NAME: '192.168.43.229'
+            CONTROLLER_HOST_PORT: '8090'
+            Account_Name: 'customer1'
+            Account_ACC_KEY: '1afacb63-b7b2-4d04-be54-bf173dde4c0e'
