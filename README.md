@@ -27,10 +27,10 @@ docker-compose build
 docker-compose up
 ```
 
-## Open to keep an eye on
+## See STATS and to keep an eye on
 ```docker stats```
 
-## Drive continuous load using tool like siege on seperate windows parallelly
+## Drive continuous load using tool like siege on seperate panes parallelly
 ```
 siege -c 50 -t 15M http://localhost:3000/
 siege -c 50 -t 15M http://localhost:3000/http
