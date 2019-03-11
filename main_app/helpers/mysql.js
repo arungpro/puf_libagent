@@ -9,8 +9,7 @@ const pool = mysql.createPool({
     user            : 'arung',
     password        : 'admin',
     database        : 'performance_tool_nodejs',
-    protocol        : 'tcp',
-    socketPath      : '/var/run/mysqld/mysqlx.sock'
+    protocol        : 'tcp'
 })
 
 runSQLQuery = function(sql, msg, cb, flag = false, fcb) {
