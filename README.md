@@ -16,10 +16,15 @@ I added few endpoints like
 Clone this app.
 Change below values of main_app and aux_app in docker_composer.yml
 ```
-CONTROLLER_HOST_NAME: '192.168.43.229'
+CONTROLLER_HOST_NAME: '<Host>'
 CONTROLLER_HOST_PORT: '8090'
-Account_Name: 'customer1'
-Account_ACC_KEY: '1afacb63-b7b2-4d04-be54-bf173dde4c0e'
+Account_Name: '<acc name>'
+Account_ACC_KEY: '1afacb63-b7b2-xxx-be54-xxxxx'
+```
+## Start container
+```
+docker-compose build
+docker-compose up
 ```
 
 ## Open to keep an eye on
